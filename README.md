@@ -65,11 +65,8 @@
 
 ### 下载 APK
 
-到 [Releases](../../releases) 页面下载 `PureCam-release.apk`，手机上点击安装，或：
+到 [Releases](../../releases) 页面下载 `PureCam-release.apk`，手机上点击安装。
 
-```bash
-adb install -r PureCam-release.apk
-```
 
 ### 自行编译（推荐）
 
@@ -115,8 +112,6 @@ sdk.dir=<你的 Android SDK 路径>
 ---
 
 ## 已知限制
-
-三件最常见的误解，先摆在这里：
 
 - **做不到「App 挂后台 + 前台干别的」**。HDMI 走的是屏幕镜像，App 退到后台，送出去的就是别的 App 画面了——这是架构决定的，不是实现问题。
 - **只在小米 17 上验证过**，其他机型大概率能用但没测过。
