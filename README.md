@@ -22,13 +22,6 @@
 | [开发笔记](docs/development-notes.md) | Camera2 / 变换矩阵的坑、非可视化验证方法论 |
 | [验证记录](docs/verification-log.md) | 每个结论背后的实测数字 |
 | [验证工具箱](tools/) | 用像素统计（而非肉眼）判断画面对不对的脚本 |
-| [技术博客](docs/blog-use-phone-as-switch2-webcam.md) | 为什么做这个、踩了哪些坑 |
-| [小红书版](docs/blog-xiaohongshu.txt) | 同一篇内容的纯文本口语版，用于社交平台发布 |
-
-> **文档分工约定**：每件事**只在负责它的那篇文档里写一次**，其他文档只给结论 + 链接。
-> 唯一的例外是 `blog-*` 和 `release-notes-*` —— 它们是对外独立分发的稿件
-> （博客平台、GitHub Releases 页面），读者不会去翻 `docs/`，所以允许自包含。
-> 改文档时请守住这条线。
 
 ---
 
@@ -80,10 +73,6 @@ sdk.dir=<你的 Android SDK 路径>
 ./gradlew assembleRelease    # 发布包
 ```
 
-**不需要任何额外配置** —— 仓库里没有签名密钥时，`assembleRelease` 会自动回退到 debug 签名。
-想用自己的正式签名见 [keystore/README.md](keystore/README.md)。
-
-> 换包来源（签名会不同）前需要先卸载旧版，见 [keystore/README.md](keystore/README.md)。
 
 ---
 
@@ -136,7 +125,7 @@ PureCam/
 └── README.md
 ```
 
-技术栈：Kotlin · Camera2（**不用 CameraX**，原因见[开发笔记](docs/development-notes.md)）·
+技术栈：Kotlin · Camera2·
 纯代码构建 UI，无 XML 布局、无 Material 依赖 · minSdk 29 / targetSdk 34。
 
 ---
