@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="accent">#40C4FF</color>
+    <!-- 启动图标底色：深青蓝，与主题色 #40C4FF 同色系，比纯黑更有质感 -->
+    <color name="ic_launcher_background">#102E3D</color>
+</resources>

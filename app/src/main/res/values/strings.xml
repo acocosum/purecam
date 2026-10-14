@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PureCam</string>
+
+    <!-- 权限 -->
+    <string name="permission_camera_denied">需要相机权限才能使用 PureCam，请在系统设置中授予。</string>
+
+    <!-- 镜头 -->
+    <string name="camera_back">已切换到后置摄像头</string>
+    <string name="camera_front">已切换到前置摄像头</string>
+    <string name="camera_none">没有可切换的摄像头</string>
+
+    <!-- ContentDescription -->
+    <string name="cd_switch_camera">切换摄像头</string>
+    <string name="cd_rotate">画面旋转</string>
+    <string name="cd_auto_dim">息屏保护</string>
+    <string name="cd_hide_ui">隐藏控制面板</string>
+    <string name="cd_show_panel">显示控制面板</string>
+
+    <!-- 息屏保护：只关手机屏幕背光，HDMI 输出的画面不受影响 -->
+    <string name="dim_on">息屏保护已开启：%1$d 秒无操作后关闭屏幕背光（投屏画面不变，触摸屏幕唤醒）</string>
+    <string name="dim_off">息屏保护已关闭：屏幕常亮</string>
+
+    <!-- 高级（对焦 / 曝光） -->
+    <string name="btn_af_ae">AF/AE</string>
+    <string name="btn_focus_center">中心对焦</string>
+    <string name="btn_focus_continuous">AF-C 连续</string>
+    <string name="btn_focus_locked">AF-L 锁定</string>
+    <string name="label_focus">对焦</string>
+    <string name="exposure_unsupported">当前设备不支持曝光补偿</string>
+
+    <!-- 画面模式（同时决定相机源画面比例） -->
+    <string name="frame_fill">填充</string>
+    <string name="frame_fit">完整</string>
+    <string name="frame_169">16:9框</string>
+    <string name="frame_fill_hint">填充：16:9 源，裁掉上下，填满屏幕</string>
+    <string name="frame_fit_hint">完整：4:3 全画幅，拿满传感器视野（左右留黑边）</string>
+    <string name="frame_169_hint">16:9框：画面限制在屏幕中央的 16:9 区域</string>
+
+    <!-- 画面旋转微调 -->
+    <string name="rotate_format">旋转 %1$d°</string>
+    <string name="rotate_hint">画面旋转 %1$d°：自动值基础上再转这么多（用于校正扩展坞/采集卡安装方向）</string>
+
+    <!-- 拉伸补偿 / 校准 -->
+    <string name="label_stretch">拉伸</string>
+    <string name="btn_preset">预设</string>
+    <string name="btn_calibration">校准图</string>
+
+    <!-- 状态：分辨率 · 帧率 · 镜头 -->
+    <string name="status_format">%1$dx%2$d · %3$dfps · %4$s</string>
+    <string name="camera_error">相机启动失败：%1$s</string>
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  自适应图标前景。
+
+  造型：**取景框四角 + 镜头圆环 + 青蓝色镜片**。
+  - 取景框四角是相机取景器的通用符号，比「老式相机剪影」现代得多，且在圆形/圆角方形遮罩下都成立；
+  - 所有几何都控制在中心直径 72dp 的安全圆内（最远点：四角 (32,32) 距中心 31.1 < 36），
+    因此在任何厂商遮罩下都不会被裁到；
+  - 配色沿用应用主题色 #40C4FF，与面板里的选中态一致。
+
+  ⚠️ 镜片上**不要加圆形高光**：实测（见 .test/icon_preview.py 的三档对比）加了高光之后
+  整个图形会读成一只「眼睛」而不是相机镜头，哪怕高光缩到 r=1.7 也一样。保持纯色镜片最干净。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 取景框四角（白色描边，圆头圆角） -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M32,46 L32,32 L46,32"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M62,32 L76,32 L76,46"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M76,62 L76,76 L62,76"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M46,76 L32,76 L32,62"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <!-- 镜头外环 r=13，stroke 6 -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,41 A13,13 0 0,1 54,67 A13,13 0 0,1 54,41"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6" />
+
+    <!-- 镜片（主题色实心圆 r=7.5，不加高光） -->
+    <path
+        android:fillColor="#40C4FF"
+        android:pathData="M54,46.5 A7.5,7.5 0 0,1 54,61.5 A7.5,7.5 0 0,1 54,46.5 Z" />
+</vector>

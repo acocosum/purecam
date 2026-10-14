@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Android 13+ 主题图标（monochrome）用的单色层。
+
+  系统只取本图层的 alpha 当遮罩，所以不能直接复用彩色前景
+  ——那里镜片是实心圆，和外环的间隙只有 3.25dp，单色化之后会和圆环糊成一团。
+  这里改成「取景框 + 外环 + 中心小实心圆」，间隙留到 5.25dp，缩到 48dp 也分得清。
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M32,46 L32,32 L46,32"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M62,32 L76,32 L76,46"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M76,62 L76,76 L62,76"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M46,76 L32,76 L32,62"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,41 A13,13 0 0,1 54,67 A13,13 0 0,1 54,41"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6" />
+
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,49.5 A4.5,4.5 0 0,1 54,58.5 A4.5,4.5 0 0,1 54,49.5 Z" />
+</vector>
