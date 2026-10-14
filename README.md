@@ -14,15 +14,21 @@
 
 ## 文档
 
-| 文档 | 内容 |
+| 文档 | 负责什么 |
 | --- | --- |
 | [连接与排查](docs/setup-guide.md) | 采集卡怎么选、链路怎么接、出问题怎么查 |
 | [画面拉伸校准](docs/calibration.md) | 采集卡把画面拉长时，怎么调回来 |
 | [已知限制](docs/limitations.md) | 适配范围、不支持的功能、以及为什么做不到后台输出 |
 | [开发笔记](docs/development-notes.md) | Camera2 / 变换矩阵的坑、非可视化验证方法论 |
-| [验证记录](docs/verification-log.md) | 每个结论背后的实测数据 |
+| [验证记录](docs/verification-log.md) | 每个结论背后的实测数字 |
 | [验证工具箱](tools/) | 用像素统计（而非肉眼）判断画面对不对的脚本 |
 | [技术博客](docs/blog-use-phone-as-switch2-webcam.md) | 为什么做这个、踩了哪些坑 |
+| [小红书版](docs/blog-xiaohongshu.txt) | 同一篇内容的纯文本口语版，用于社交平台发布 |
+
+> **文档分工约定**：每件事**只在负责它的那篇文档里写一次**，其他文档只给结论 + 链接。
+> 唯一的例外是 `blog-*` 和 `release-notes-*` —— 它们是对外独立分发的稿件
+> （博客平台、GitHub Releases 页面），读者不会去翻 `docs/`，所以允许自包含。
+> 改文档时请守住这条线。
 
 ---
 
@@ -80,7 +86,7 @@ sdk.dir=<你的 Android SDK 路径>
 **不需要任何额外配置** —— 仓库里没有签名密钥时，`assembleRelease` 会自动回退到 debug 签名。
 想用自己的正式签名见 [keystore/README.md](keystore/README.md)。
 
-> 切换不同来源（不同签名）的 APK 之前，需要先 `adb uninstall com.purecam.app`。
+> 换包来源（签名会不同）前需要先卸载旧版，见 [keystore/README.md](keystore/README.md)。
 
 ---
 
@@ -108,15 +114,15 @@ sdk.dir=<你的 Android SDK 路径>
 
 ---
 
-## 已知限制（摘要）
+## 已知限制
 
-- 只验证过小米 17；采集卡必须 1080p。
-- **做不到「后台输出 + 前台干别的」** —— HDMI 走的是屏幕镜像，App 退到后台送出去的就是别的 app 了。
-  这是架构决定的，详见 [已知限制](docs/limitations.md)。
-- 不提供手动对焦距离滑杆（绝大多数手机模组不支持），用 AF-L 替代。
-- `surfaceRotation` 硬编码 90°，个别设备可能要多点一次「画面旋转」。
+三件最常见的误解，先摆在这里：
 
-完整列表见 [docs/limitations.md](docs/limitations.md)。
+- **做不到「App 挂后台 + 前台干别的」**。HDMI 走的是屏幕镜像，App 退到后台，送出去的就是别的 App 画面了——这是架构决定的，不是实现问题。
+- **只在小米 17 上验证过**，其他机型大概率能用但没测过。
+- **采集卡必须能输出 1080p**，2K / 1440p 模式的卡 Switch 2 不识别。
+
+其余限制（为什么不做手动对焦、`surfaceRotation` 硬编码等）见 [docs/limitations.md](docs/limitations.md)。
 
 ---
 

@@ -249,14 +249,11 @@ set(CONTROL_VIDEO_STABILIZATION_MODE, CONTROL_VIDEO_STABILIZATION_MODE_OFF)
 
 ### 4.6 签名密钥不要进版本库
 
-本项目的做法：
+原则一句话：**仓库不含任何 keystore**；有 `keystore/release.jks` 就用它，
+没有则自动回退 debug 签名。这样 clone 下来不用任何配置就能构建，也不会泄露密钥。
 
-- 仓库**不含任何 keystore**；
-- 有 `keystore/release.jks` 就用它（口令从已被 gitignore 的 `local.properties` 读）；
-- 没有则**自动回退 debug 签名**。
-
-这样别人 clone 下来直接 `./gradlew assembleRelease` 就能产出可安装的 APK，
-不需要任何额外配置，也不会泄露你的签名密钥。
+具体的 keytool 命令和 `local.properties` 写法见 [keystore/README.md](../keystore/README.md)，
+这里不重复。
 
 ### 4.7 其它工程细节
 
