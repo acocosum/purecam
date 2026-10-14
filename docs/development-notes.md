@@ -257,3 +257,19 @@ set(CONTROL_VIDEO_STABILIZATION_MODE, CONTROL_VIDEO_STABILIZATION_MODE_OFF)
 
 这样别人 clone 下来直接 `./gradlew assembleRelease` 就能产出可安装的 APK，
 不需要任何额外配置，也不会泄露你的签名密钥。
+
+### 4.7 其它工程细节
+
+- **只建一条 repeating request**：预览用 `TEMPLATE_PREVIEW`，不挂 `ImageAnalysis` / `ImageCapture`，
+  少一条数据通路就少一份调度开销。
+- **分辨率挑选**：走 `SCALER_STREAM_CONFIGURATION_MAP.getOutputSizes(SurfaceTexture::class)`，
+  取目标比例（16:9 / 4:3）内、不超过 1920×1080（4:3 为 1920×1440）的最大档。
+  用 `SurfaceTexture` 的尺寸列表而不是 `SurfaceView` 的，避免选到设备不支持的档位。
+- **固定横屏**：`requestedOrientation = SCREEN_ORIENTATION_LANDSCAPE`。
+  Manifest 里仍然声明 `configChanges="orientation|screenSize|..."`，
+  `onConfigurationChanged` **只重算矩阵、不重建相机会话**，所以系统栏短暂出现这类配置变化不会黑帧。
+- **沉浸式**：`WindowInsetsControllerCompat` 隐藏系统栏 + 旧版 `SYSTEM_UI_FLAG_IMMERSIVE_STICKY` 双保险；
+  `layoutInDisplayCutoutMode = SHORT_EDGES` 让画面延伸到打孔区域。
+- **生命周期**：`onResume` 起相机、`onPause` 解绑、`onDestroy` shutdown。
+  注意 `onPause` 里必须**同时恢复屏幕亮度**（`cancelAutoDim()`），
+  否则切到后台后屏幕还是黑的，看起来像卡死。
